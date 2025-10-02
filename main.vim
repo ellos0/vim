@@ -4,6 +4,7 @@ def SplashScreen()
   if empty(bufname('%'))
     call append(0, ['welcome to vim!', 'press any key to continue editing...'])
   else
+    echo 'welcome to vim!'
     autocmd! Splash
   endif
 enddef
@@ -39,6 +40,8 @@ def Initiate()
   set mouse=a
 enddef
 
+autocmd VimEnter * call Initiate()
+
 inoremap <Leader>n <ESC>f<space>i
 inoremap <Leader>b <ESC>0i
 inoremap <Leader>w <ESC>:w<CR>i
@@ -52,4 +55,3 @@ command Reloadrc {
 }
 
 
-autocmd VimEnter * call Initiate()
