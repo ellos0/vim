@@ -1,8 +1,22 @@
 vim9script
 
 def SplashScreen()
-  echo 'Welcome to Vim!' 
+  if empty(bufname('%'))
+    call append(0, ['welcome to vim!', 'press any key to continue editing...'])
+  else
+    autocmd! Splash
+  endif
 enddef
+
+def ClearSplashScreen()
+  execute ':%d'
+  autocmd! Splash
+enddef
+
+augroup Splash
+  autocmd VimEnter * call SplashScreen()
+  autocmd InsertEnter * call ClearSplashScreen()
+augroup END
 
 def SpacesForTabs()
   set expandtab
@@ -23,8 +37,19 @@ def Initiate()
   set number
   set autoindent
   set mouse=a
-  set showcmd
 enddef
 
+inoremap <Leader>n <ESC>f<space>i
+inoremap <Leader>b <ESC>0i
+inoremap <Leader>w <ESC>:w<CR>i
+inoremap <Leader>q <ESC>:q<CR>
+inoremap <Leader>x <ESC>:
+inoremap <Leader>d <ESC>ddi
+inoremap <Leader>s <ESC>:source
+
+command Reloadrc {
+  source ~/.vimrc
+}
+
+
 autocmd VimEnter * call Initiate()
-autocmd VimEnter * call SplashScreen()
