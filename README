@@ -1,3 +1,5 @@
 my little vim distribution
 
 features:
+  insert mode auto
+  insert mode keybinds
