@@ -18,12 +18,20 @@ SpacesForTabs()
 set number
 set autoindent
 set mouse=a
+set background=dark
+set cursorline
+
+highlight Normal ctermfg=white ctermbg=black  # Set text color
+highlight LineNr ctermfg=blue  # Set line number color
+highlight CursorLineNr ctermfg=yellow ctermbg=NONE # Set current line number color
 
 inoremap <C-b> <C-o>0i
 inoremap <C-s> <C-o>:w<CR>
 inoremap <C-q> <C-o>:q<CR>
 inoremap <C-x> <C-o>:
-inoremap <C-d> <C-o>d
+inoremap <C-v> <C-o>v
+inoremap <C-u> <C-o>u
+vnoremap <BACKSPACE> d
 
 command Reloadrc {
   source ~/.vimrc
