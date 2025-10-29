@@ -3,3 +3,11 @@ my little vim distribution
 features:
   insert mode auto
   insert mode keybinds
+  compilation of vim with extra stuff
+
+
+to install, add executable permissions to build.sh ie:
+chmod +x build.sh
+
+then, run build.sh, add a install path if needed (default /usr/local)
+./build.sh PATH
