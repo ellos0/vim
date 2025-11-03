@@ -1,5 +1,3 @@
-source highlight.vim
-
 function! s:SpacesForTabs()
   setlocal expandtab
   setlocal tabstop=2
@@ -19,9 +17,6 @@ set number
 set autoindent
 set mouse=a
 set background=dark
-set cursorline
-syntax on
-
 
 inoremap <C-b> <C-o>0i
 inoremap <C-s> <C-o>:w<CR>
