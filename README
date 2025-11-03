@@ -11,3 +11,6 @@ chmod +x build.sh
 
 then, run build.sh, add a install path if needed (default /usr/local)
 ./build.sh PATH
+
+finally, source the main.vim program in your vimrc:
+source ~/path/to/main.vim
