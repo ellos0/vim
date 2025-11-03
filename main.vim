@@ -1,29 +1,27 @@
-vim9script
+source highlight.vim
 
-def SpacesForTabs()
-  set expandtab
-  set tabstop=2
-  set shiftwidth=2 
-enddef
+function! s:SpacesForTabs()
+  setlocal expandtab
+  setlocal tabstop=2
+  setlocal shiftwidth=2 
+endfunction
 
-command SpacesForTabs SpacesForTabs()
+command! SpacesForTabs call s:SpacesForTabs()
 
-def TabsForTabs()
-  set noexpandtab
-enddef
+function! s:TabsForTabs()
+  setlocal noexpandtab
+endfunction
 
-command TabsForTabs TabsForTabs()
+command! TabsForTabs call s:TabsForTabs()
 
-SpacesForTabs()
+call s:SpacesForTabs()
 set number
 set autoindent
 set mouse=a
 set background=dark
 set cursorline
+syntax on
 
-highlight Normal ctermfg=white ctermbg=black  # Set text color
-highlight LineNr ctermfg=blue  # Set line number color
-highlight CursorLineNr ctermfg=yellow ctermbg=NONE # Set current line number color
 
 inoremap <C-b> <C-o>0i
 inoremap <C-s> <C-o>:w<CR>
@@ -33,13 +31,10 @@ inoremap <C-v> <C-o>v
 inoremap <C-u> <C-o>u
 vnoremap <BACKSPACE> d
 
-command Reloadrc {
-  source ~/.vimrc
-}
+command! Reloadrc source ~/.vimrc
 
 augroup InsertMode
   autocmd!
-  # auto enter insert mode when leaving cmd or entering file
   autocmd VimEnter * startinsert 
-  autocmd CmdlineLeave : startinsert
+  autocmd CmdlineLeave * startinsert
 augroup END
