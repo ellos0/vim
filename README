@@ -1,7 +1,6 @@
 my little vim distribution
 
 features:
-  insert mode auto
   insert mode keybinds
   compilation of vim with extra stuff
 

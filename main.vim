@@ -27,9 +27,3 @@ inoremap <C-u> <C-o>u
 vnoremap <BACKSPACE> d
 
 command! Reloadrc source ~/.vimrc
-
-augroup InsertMode
-  autocmd!
-  autocmd VimEnter * startinsert 
-  autocmd CmdlineLeave * startinsert
-augroup END
